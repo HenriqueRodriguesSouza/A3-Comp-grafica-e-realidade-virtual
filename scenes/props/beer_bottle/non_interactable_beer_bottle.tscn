@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxq2pimq7o1d2"]
+
+[ext_resource type="PackedScene" uid="uid://g08x4mvi2y41" path="res://assets/props/beer_bottle/beer_bottle.blend" id="1_ilap5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoj86"]
+albedo_color = Color(0.511461, 0.353847, 0.13505, 1)
+roughness = 0.1
+emission = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_caijv"]
+points = PackedVector3Array(0.0305545, -0.100027, 0.0260501, -0.037054, -0.104517, -0.0100063, -0.0325354, -0.100027, -0.0235266, -0.0100063, 0.174954, 0.0170413, 0.0215457, 0.0487176, -0.0325354, -0.0190222, -0.100027, 0.035073, 0.0215457, -0.104517, -0.0325354, -0.0235266, 0.0441991, -0.0325354, 0.0305545, 0.0441991, 0.0260501, 0.0125298, 0.174954, -0.0145108, -0.037054, 0.0487176, 0.0125298, 0.035073, 0.0441991, -0.0190222, -0.0145108, 0.0532079, 0.035073, -0.0145108, 0.174954, -0.0100063, 0.035073, -0.109035, -0.0100063, 0.0170413, 0.174954, 0.0080254, 0.0170413, 0.0487176, 0.035073, -0.0100063, -0.104517, -0.037054, -0.037054, 0.0441991, -0.0145108, -0.028031, -0.113554, 0.0170413, 0.0125298, 0.0487176, -0.037054, 0.0170413, -0.104517, 0.035073, 0.035073, 0.0487176, 0.0170413, -0.037054, -0.100027, 0.0125298, -0.0145108, 0.0441991, -0.037054, -0.0190222, -0.113554, -0.028031, -0.0325354, 0.0487176, 0.0215457, 0.0260501, -0.113554, 0.0215457, 0.0080254, 0.174954, 0.0170413, 0.035073, -0.104517, 0.0170413, -0.0100063, 0.174954, -0.0145108, 0.035073, -0.100027, -0.0190222)
+
+[node name="beer_bottle" instance=ExtResource("1_ilap5")]
+
+[node name="Cylinder" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xoj86")
+
+[node name="beer" type="StaticBody3D" parent="Cylinder" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/beer" index="0"]
+shape = SubResource("ConvexPolygonShape3D_caijv")

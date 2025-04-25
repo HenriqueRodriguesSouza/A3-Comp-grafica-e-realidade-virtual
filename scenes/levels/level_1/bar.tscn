@@ -1,0 +1,195 @@
+[gd_scene load_steps=16 format=3 uid="uid://cvrkebf00gnj6"]
+
+[ext_resource type="Texture2D" uid="uid://rt5d57h5l7mb" path="res://assets/skybox/autumn_field_puresky_1k.hdr" id="1_8is20"]
+[ext_resource type="PackedScene" uid="uid://ge2mr157qfcw" path="res://scenes/scenery/bar_base.tscn" id="1_ndu7j"]
+[ext_resource type="PackedScene" uid="uid://du5dpofjud0lj" path="res://scenes/objects/billiard_table/billard_table.tscn" id="2_dotln"]
+[ext_resource type="PackedScene" uid="uid://bh4x3ey10xt46" path="res://scenes/objects/chair/plastic_chair.tscn" id="6_u3gn7"]
+[ext_resource type="PackedScene" uid="uid://cmhksswg5bxl6" path="res://scenes/objects/table/table.tscn" id="7_8is20"]
+[ext_resource type="PackedScene" uid="uid://bsqynsmr8fgel" path="res://assets/objects/cue_support/cue_support.blend" id="7_u3gn7"]
+[ext_resource type="PackedScene" uid="uid://d0hkhos2ykbtq" path="res://scenes/characters/player/main_character.tscn" id="8_8is20"]
+[ext_resource type="PackedScene" uid="uid://bgm7io8uhgmug" path="res://scenes/props/beer_bottle/interactable_beer_bottle.tscn" id="8_ge48x"]
+[ext_resource type="PackedScene" uid="uid://dd2a1cwdde0ly" path="res://scenes/props/beer_crate/beer_crate.tscn" id="9_ge48x"]
+[ext_resource type="PackedScene" uid="uid://cxq2pimq7o1d2" path="res://scenes/props/beer_bottle/non_interactable_beer_bottle.tscn" id="10_ll7lk"]
+[ext_resource type="PackedScene" uid="uid://cowkddxxgh244" path="res://assets/scenery/street/rua.blend" id="11_uillf"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ge48x"]
+panorama = ExtResource("1_8is20")
+
+[sub_resource type="Sky" id="Sky_8is20"]
+sky_material = SubResource("PanoramaSkyMaterial_ge48x")
+
+[sub_resource type="Environment" id="Environment_ge48x"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_8is20")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="GDScript" id="GDScript_u3gn7"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="bar_scene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ge48x")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0412154, -0.714862, 0.69805, 0.0105103, 0.698295, 0.715733, -0.999095, 0.036836, -0.0212671, 10.9584, 6.94236, 0)
+shadow_enabled = true
+
+[node name="MainCharacter" parent="." instance=ExtResource("8_8is20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06677, 0.0714285, 1.80064)
+visible = false
+
+[node name="bar_base" parent="." instance=ExtResource("1_ndu7j")]
+
+[node name="rua" parent="." instance=ExtResource("11_uillf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00372934, 0.0878975, -0.50265)
+
+[node name="Luzes" type="Node" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.46101, 2.95571, 0.0139686)
+light_energy = 2.0
+spot_attenuation = 0.7
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.71215, 2.99742, 0.00673445)
+light_energy = 2.0
+spot_attenuation = 0.7
+
+[node name="interactibles" type="Node" parent="."]
+
+[node name="billard_table" parent="interactibles" instance=ExtResource("2_dotln")]
+transform = Transform3D(-0.999971, 0, 0.00750479, 0, 1, 0, -0.00750479, 0, -0.999971, 1.49335, 0.012, 0.774407)
+
+[node name="cue_support" parent="interactibles" instance=ExtResource("7_u3gn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69293, 0.728924, 2.19363)
+
+[node name="beer_bottle" parent="interactibles" instance=ExtResource("8_ge48x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.173, 1.114, -0.396)
+
+[node name="plastic_chair" parent="interactibles" instance=ExtResource("6_u3gn7")]
+transform = Transform3D(0.816621, 0, 0.577174, 0, 1, 0, -0.577174, 0, 0.816621, 0.40393, 0.0714288, -1.60435)
+script = SubResource("GDScript_u3gn7")
+
+[node name="plastic_chair2" parent="interactibles" instance=ExtResource("6_u3gn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22099, 0.0714285, -1.92271)
+script = SubResource("GDScript_u3gn7")
+
+[node name="plastic_chair3" parent="interactibles" instance=ExtResource("6_u3gn7")]
+transform = Transform3D(0.400413, 0, -0.916335, 0, 1, 0, 0.916335, 0, 0.400413, 1.95269, 0.0714285, -1.58323)
+script = SubResource("GDScript_u3gn7")
+
+[node name="plastic_chair4" parent="interactibles" instance=ExtResource("6_u3gn7")]
+transform = Transform3D(0.717555, 0, -0.696502, 0, 1, 0, 0.696502, 0, 0.717555, 3.73009, 0.0714288, -1.64612)
+script = SubResource("GDScript_u3gn7")
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="table" parent="Objects" instance=ExtResource("7_8is20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22091, 0.0749781, -1.47144)
+
+[node name="crates" type="Node" parent="Objects"]
+
+[node name="beer_crate" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28805, 0.00336783, 0.74014)
+
+[node name="beer_crate2" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82054, 0.00336783, 0.74014)
+
+[node name="beer_crate3" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82054, 0.335881, 0.74014)
+
+[node name="beer_crate4" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.31916, 0.00808576, 0.656898)
+
+[node name="beer_crate5" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.31916, 0.330945, 0.641348)
+
+[node name="beer_crate6" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.979663, 0, -0.20065, 0, 1, 0, 0.20065, 0, 0.979663, -4.16127, 0.660743, 0.660382)
+
+[node name="beer_crate7" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.979663, 0, -0.20065, 0, 1, 0, 0.20065, 0, 0.979663, -1.86162, 1.78064, -1.9853)
+
+[node name="beer_crate8" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.998814, 0, -0.0486929, 0, 1, 0, 0.0486929, 0, 0.998814, -2.67324, 1.78608, -2.02793)
+
+[node name="beer_crate9" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.0460604, 0, 0.998939, 0, 1, 0, -0.998939, 0, 0.0460604, -3.96764, 1.78546, -1.88042)
+
+[node name="beer_crate10" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.0460604, 0, 0.998939, 0, 1, 0, -0.998939, 0, 0.0460604, -2.83678, 0.00742087, -0.545295)
+
+[node name="beer_crate11" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.00263557, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00263557, -1.87048, 0.00742087, -0.545295)
+
+[node name="beer_crate12" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.00263557, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00263557, -1.87048, 0.590469, -0.525177)
+
+[node name="beer_crate13" parent="Objects/crates" instance=ExtResource("9_ge48x")]
+transform = Transform3D(0.971018, 0, -0.239008, 0, 1, 0, 0.239008, 0, 0.971018, -2.61394, 0.590469, -0.525177)
+
+[node name="beers" type="Node" parent="Objects"]
+
+[node name="beer_bottle" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.994597, 0.797106, -0.83484)
+
+[node name="beer_bottle2" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.994597, 0.797106, -0.931178)
+
+[node name="beer_bottle3" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.994597, 0.797106, -1.01837)
+
+[node name="beer_bottle13" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12217, 0.673557, 0.625085)
+
+[node name="beer_bottle14" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79837, 0.337361, 0.625085)
+
+[node name="beer_bottle15" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25462, 0.00312981, 0.616941)
+
+[node name="beer_bottle16" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43025, 0.00312981, 0.868509)
+
+[node name="beer_bottle17" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09504, 0.00312981, 0.773794)
+
+[node name="beer_bottle4" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.994597, 0.797106, -1.10681)
+
+[node name="beer_bottle9" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99257, 1.78858, -1.71161)
+
+[node name="beer_bottle10" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17957, 1.78858, -1.71161)
+
+[node name="beer_bottle11" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34616, 1.78858, -1.71161)
+
+[node name="beer_bottle5" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.25638, 0.562875, -1.10681)
+
+[node name="beer_bottle6" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.25638, 0.562875, -1.02524)
+
+[node name="beer_bottle12" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(-2.18557e-08, 0.5, -0.866025, -1, -4.37114e-08, 0, -3.78552e-08, 0.866025, 0.5, -3.38307, 1.81746, -1.83628)
+
+[node name="beer_bottle7" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.25638, 0.562875, -0.943312)
+
+[node name="beer_bottle8" parent="Objects/beers" instance=ExtResource("10_ll7lk")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.25638, 0.562875, -0.85368)

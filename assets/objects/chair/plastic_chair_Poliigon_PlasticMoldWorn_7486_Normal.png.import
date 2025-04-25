@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bruposvlq33ce"
+path.s3tc="res://.godot/imported/plastic_chair_Poliigon_PlasticMoldWorn_7486_Normal.png-fdc214e8156c48db12f2b8fa6f951c04.s3tc.ctex"
+path.etc2="res://.godot/imported/plastic_chair_Poliigon_PlasticMoldWorn_7486_Normal.png-fdc214e8156c48db12f2b8fa6f951c04.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "91bafedcb6c4c0e4ecbbc51916a91a5d"
+}
+
+[deps]
+
+source_file="res://assets/objects/chair/plastic_chair_Poliigon_PlasticMoldWorn_7486_Normal.png"
+dest_files=["res://.godot/imported/plastic_chair_Poliigon_PlasticMoldWorn_7486_Normal.png-fdc214e8156c48db12f2b8fa6f951c04.s3tc.ctex", "res://.godot/imported/plastic_chair_Poliigon_PlasticMoldWorn_7486_Normal.png-fdc214e8156c48db12f2b8fa6f951c04.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/objects/chair/plastic_chair_Poliigon_PlasticMoldWorn_7486_Normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmhksswg5bxl6"]
+
+[ext_resource type="PackedScene" uid="uid://h4xed4t7qf7u" path="res://assets/objects/table/table.blend" id="1_v5fmq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvsu2"]
+albedo_color = Color(1, 1, 0.372549, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v5fmq"]
+points = PackedVector3Array(-0.355556, 0.168722, -0.299939, 0.322313, 0.690354, 0.279365, 0.322121, 0.69015, -0.279199, 0.346558, -5.76429e-05, 0.314059, -0.322163, 0.690195, 0.279235, 0.314002, -6.96836e-05, -0.34657, -0.314002, -6.96836e-05, 0.34657, -0.27919, 0.690222, -0.322189, -0.314026, -9.60515e-05, -0.346596, 0.288802, 0.513071, 0.344418, 0.288802, 0.513071, -0.344418, 0.355556, 0.168722, -0.299939, -0.279209, 0.690246, 0.322211, -0.346584, -8.41663e-05, 0.314083, -0.344349, 0.513071, -0.288871, 0.314026, -9.60515e-05, 0.346596, 0.344418, 0.513071, 0.288871, -0.344349, 0.513071, 0.288871, -0.299939, 0.168722, -0.355556, -0.299939, 0.168722, 0.355556, 0.279334, 0.6904, 0.322355, 0.27917, 0.690198, -0.322166, -0.32213, 0.690159, -0.279206, 0.344418, 0.513071, -0.288871, -0.288802, 0.513071, 0.344418, -0.288802, 0.513071, -0.344418, 0.346584, -8.41663e-05, -0.314083, -0.346558, -5.76429e-05, -0.314059, 0.355556, 0.168722, 0.299939, 0.299939, 0.168722, -0.355556, -0.355556, 0.168722, 0.299939, 0.299939, 0.168722, 0.355556)
+
+[node name="table" instance=ExtResource("1_v5fmq")]
+
+[node name="cadeira" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nvsu2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cadeira" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cadeira/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_v5fmq")

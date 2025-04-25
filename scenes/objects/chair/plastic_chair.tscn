@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh4x3ey10xt46"]
+
+[ext_resource type="PackedScene" uid="uid://bkw7ht5r8xrla" path="res://assets/objects/chair/plastic_chair.blend" id="1_5wrfl"]
+[ext_resource type="Script" uid="uid://csdjmfb1stnf5" path="res://scripts/objects/chair/plastic_chair_collision.gd" id="2_thunp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wrfl"]
+albedo_color = Color(1, 1, 0.227451, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_thunp"]
+points = PackedVector3Array(0.0720455, 0.726414, -0.25189, -0.270714, 0.474921, 0.125151, -0.202099, -0.00494272, -0.137584, 0.197814, -0.00494272, 0.262329, 0.197814, -0.00494272, -0.137584, 0.243504, 0.486304, 0.216585, -0.19069, -0.00494272, 0.262329, -0.202099, 0.680597, -0.206199, 0.266429, 0.589177, -0.103303, -0.247843, 0.486304, 0.216585, -0.0763838, 0.703434, -0.274814, -0.156408, 0.349353, 0.262329, -0.270714, 0.577723, -0.0804313, 0.16348, 0.692051, -0.24048, 0.266429, 0.463467, 0.193714, 0.16348, 0.349353, 0.262329, 0.209223, -0.00494272, -0.126175, -0.0649743, 0.726414, -0.24048, 0.0720455, 0.703434, -0.274814, -0.213561, 0.0408029, 0.239457, 0.220685, 0.65776, -0.194737, 0.209223, 0.00651157, 0.239457, -0.259252, 0.429175, 0.227995, 0.197814, 0.680597, -0.183328, -0.23638, 0.646306, -0.171865, -0.17928, 0.669143, -0.229071, 0.254914, 0.394884, 0.227995, -0.202099, 0.680597, -0.183328, 0.060636, 0.726414, -0.24048, 0.266429, 0.532049, -0.0347405, 0.243504, 0.634851, -0.126175, -0.259252, 0.612014, -0.126175)
+
+[node name="plastic_chair" instance=ExtResource("1_5wrfl")]
+
+[node name="Plastic_Chair_1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5wrfl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plastic_Chair_1" index="0"]
+script = ExtResource("2_thunp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plastic_Chair_1/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_thunp")

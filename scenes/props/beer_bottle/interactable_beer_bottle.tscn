@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgm7io8uhgmug"]
+
+[ext_resource type="PackedScene" uid="uid://g08x4mvi2y41" path="res://assets/props/beer_bottle/beer_bottle.blend" id="1_pc4w8"]
+[ext_resource type="Script" uid="uid://dlw58fgg2ip7j" path="res://scripts/props/beer_bottle/beer_bottle.gd" id="2_nd1ti"]
+[ext_resource type="Script" uid="uid://drehl1vbqxis4" path="res://scripts/props/beer_bottle/beer_bottle_collision.gd" id="3_nd1ti"]
+[ext_resource type="AudioStream" uid="uid://dsbu1ll0y8f1n" path="res://sounds/sfx/beer_sound_effects/opening-a-bottle-of-beer-80748.mp3" id="4_xoj86"]
+[ext_resource type="AudioStream" uid="uid://4r4qygh2eano" path="res://sounds/sfx/beer_sound_effects/beer-bottles-hit-82232.mp3" id="5_ynyd3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoj86"]
+albedo_color = Color(0.511461, 0.353847, 0.13505, 1)
+roughness = 0.1
+emission = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_caijv"]
+points = PackedVector3Array(0.0305545, -0.100027, 0.0260501, -0.037054, -0.104517, -0.0100063, -0.0325354, -0.100027, -0.0235266, -0.0100063, 0.174954, 0.0170413, 0.0215457, 0.0487176, -0.0325354, -0.0190222, -0.100027, 0.035073, 0.0215457, -0.104517, -0.0325354, -0.0235266, 0.0441991, -0.0325354, 0.0305545, 0.0441991, 0.0260501, 0.0125298, 0.174954, -0.0145108, -0.037054, 0.0487176, 0.0125298, 0.035073, 0.0441991, -0.0190222, -0.0145108, 0.0532079, 0.035073, -0.0145108, 0.174954, -0.0100063, 0.035073, -0.109035, -0.0100063, 0.0170413, 0.174954, 0.0080254, 0.0170413, 0.0487176, 0.035073, -0.0100063, -0.104517, -0.037054, -0.037054, 0.0441991, -0.0145108, -0.028031, -0.113554, 0.0170413, 0.0125298, 0.0487176, -0.037054, 0.0170413, -0.104517, 0.035073, 0.035073, 0.0487176, 0.0170413, -0.037054, -0.100027, 0.0125298, -0.0145108, 0.0441991, -0.037054, -0.0190222, -0.113554, -0.028031, -0.0325354, 0.0487176, 0.0215457, 0.0260501, -0.113554, 0.0215457, 0.0080254, 0.174954, 0.0170413, 0.035073, -0.104517, 0.0170413, -0.0100063, 0.174954, -0.0145108, 0.035073, -0.100027, -0.0190222)
+
+[node name="beer_bottle" instance=ExtResource("1_pc4w8")]
+script = ExtResource("2_nd1ti")
+
+[node name="Cylinder" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xoj86")
+
+[node name="beer" type="StaticBody3D" parent="Cylinder" index="0"]
+script = ExtResource("3_nd1ti")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/beer" index="0"]
+shape = SubResource("ConvexPolygonShape3D_caijv")
+
+[node name="AudioStreamPlayer3D_Open" type="AudioStreamPlayer3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.268891, 0)
+stream = ExtResource("4_xoj86")
+volume_db = -80.0
+emission_angle_enabled = true
+emission_angle_degrees = 5.6
+
+[node name="AudioStreamPlayer3D_End" type="AudioStreamPlayer3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+stream = ExtResource("5_ynyd3")
+volume_db = -20.0
+emission_angle_enabled = true
+emission_angle_degrees = 90.0
