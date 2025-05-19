@@ -11,7 +11,7 @@ var is_sitting: bool = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-func interact(player) -> void:	
+func defunct_interact(player) -> void:	
 	var duration: float = 4.0
 	var elapsed_time: float = 0.0
 	var update_interval: float = 0.1

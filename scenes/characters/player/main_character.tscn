@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://s5ugrpk4rfw4"
 
 [node name="SeeCast" type="RayCast3D" parent="Player/head/Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(14.2623, 0, 0, 0, -1.19307e-07, -9.88791, 0, 2.72943, -4.32214e-07, -0.025, 0.015, -0.305)
+transform = Transform3D(14.2623, 0, 0, 0, -1.19307e-07, -9.88791, 0, 2.72943, -4.32214e-07, -0.025, 0.0354613, -0.137759)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 

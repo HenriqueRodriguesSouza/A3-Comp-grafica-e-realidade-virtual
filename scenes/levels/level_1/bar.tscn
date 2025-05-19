@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvrkebf00gnj6"]
+[gd_scene load_steps=18 format=3 uid="uid://cvrkebf00gnj6"]
 
 [ext_resource type="Texture2D" uid="uid://rt5d57h5l7mb" path="res://assets/skybox/autumn_field_puresky_1k.hdr" id="1_8is20"]
 [ext_resource type="PackedScene" uid="uid://ge2mr157qfcw" path="res://scenes/scenery/bar_base.tscn" id="1_ndu7j"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dd2a1cwdde0ly" path="res://scenes/props/beer_crate/beer_crate.tscn" id="9_ge48x"]
 [ext_resource type="PackedScene" uid="uid://cxq2pimq7o1d2" path="res://scenes/props/beer_bottle/non_interactable_beer_bottle.tscn" id="10_ll7lk"]
 [ext_resource type="PackedScene" uid="uid://cowkddxxgh244" path="res://assets/scenery/street/rua.blend" id="11_uillf"]
+[ext_resource type="PackedScene" uid="uid://bypxbyt7n5ec4" path="res://scenes/props/ligth_switch/light_switch.tscn" id="12_tqqoh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ge48x"]
 panorama = ExtResource("1_8is20")
@@ -24,6 +25,8 @@ background_energy_multiplier = 0.5
 sky = SubResource("Sky_8is20")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Curve" id="Curve_tqqoh"]
 
 [sub_resource type="GDScript" id="GDScript_u3gn7"]
 script/source = "extends Node3D
@@ -48,8 +51,7 @@ transform = Transform3D(-0.0412154, -0.714862, 0.69805, 0.0105103, 0.698295, 0.7
 shadow_enabled = true
 
 [node name="MainCharacter" parent="." instance=ExtResource("8_8is20")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06677, 0.0714285, 1.80064)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66426, 0.0714285, -0.927863)
 
 [node name="bar_base" parent="." instance=ExtResource("1_ndu7j")]
 
@@ -69,6 +71,13 @@ light_energy = 2.0
 spot_attenuation = 0.7
 
 [node name="interactibles" type="Node" parent="."]
+
+[node name="light_switch" parent="interactibles" node_paths=PackedStringArray("bar_base", "luz1", "luz2") instance=ExtResource("12_tqqoh")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -2.39207, 1.19342, -2.19627)
+bar_base = NodePath("../../bar_base")
+luz1 = NodePath("../../Luzes/SpotLight3D")
+luz2 = NodePath("../../Luzes/SpotLight3D2")
+metadata/luz1 = SubResource("Curve_tqqoh")
 
 [node name="billard_table" parent="interactibles" instance=ExtResource("2_dotln")]
 transform = Transform3D(-0.999971, 0, 0.00750479, 0, 1, 0, -0.00750479, 0, -0.999971, 1.49335, 0.012, 0.774407)
