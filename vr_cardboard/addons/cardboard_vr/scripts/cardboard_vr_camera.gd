@@ -2,7 +2,7 @@ class_name CardboardVRCamera extends Camera3D
 
 @export var Active : bool = true
 @export_category("Controls")
-@export var UseGysroscope : bool = false #alterar para true para rodar no celular
+@export var UseGysroscope : bool = true #alterar para true para rodar no celular e false para rodar no pc
 @export var Mouse_Sensitivity : float = 0.003
 @export var GysroscopeFactor : float = 0.2
 @export var RotateParent : bool = true

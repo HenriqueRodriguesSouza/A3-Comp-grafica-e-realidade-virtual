@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buh6ff3ud2a3q"
+path="res://.godot/imported/Os Barões da Pisadinha - Já Que Me Ensinou a Beber (Áudio Oficial).mp3-63e0726634a0e6de9570b1d513b65cd5.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/Os Barões da Pisadinha - Já Que Me Ensinou a Beber (Áudio Oficial).mp3"
+dest_files=["res://.godot/imported/Os Barões da Pisadinha - Já Que Me Ensinou a Beber (Áudio Oficial).mp3-63e0726634a0e6de9570b1d513b65cd5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dnexc2jryxl8h"
+path.s3tc="res://.godot/imported/jukebox_98568575-hand-holding-retro-mic-microphone-in-front-of-huge-cro.jpg-308342ccc309e624ea6371ae4c4009ae.s3tc.ctex"
+path.etc2="res://.godot/imported/jukebox_98568575-hand-holding-retro-mic-microphone-in-front-of-huge-cro.jpg-308342ccc309e624ea6371ae4c4009ae.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "4eb9143bbe9c218340c8597b1c441e34"
+}
+
+[deps]
+
+source_file="res://assets/objects/jukebox/jukebox_98568575-hand-holding-retro-mic-microphone-in-front-of-huge-cro.jpg"
+dest_files=["res://.godot/imported/jukebox_98568575-hand-holding-retro-mic-microphone-in-front-of-huge-cro.jpg-308342ccc309e624ea6371ae4c4009ae.s3tc.ctex", "res://.godot/imported/jukebox_98568575-hand-holding-retro-mic-microphone-in-front-of-huge-cro.jpg-308342ccc309e624ea6371ae4c4009ae.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

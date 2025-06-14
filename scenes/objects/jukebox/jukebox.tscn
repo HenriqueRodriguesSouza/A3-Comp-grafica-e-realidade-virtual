@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ced1vmsjlqdpq"]
+
+[ext_resource type="PackedScene" uid="uid://mt6q1ro0fk6o" path="res://assets/objects/jukebox/jukebox.blend" id="1_egcv4"]
+[ext_resource type="Script" uid="uid://cecrmcmp8ko44" path="res://scripts/objects/jukebox/jukebox.gd" id="2_dk010"]
+[ext_resource type="AudioStream" uid="uid://buh6ff3ud2a3q" path="res://sounds/music/Os Barões da Pisadinha - Já Que Me Ensinou a Beber (Áudio Oficial).mp3" id="3_8etj2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dk010"]
+points = PackedVector3Array(0.993008, 0.993007, 1, -0.134321, -0.981614, -1.10626, 0.126464, -0.98257, -1.10728, -0.999938, -1, 0.998875, -1, 0.992015, -0.993032, 0.991953, -1, 0.998875, 1.00883, 1.00883, -1.00873, -1, 0.992015, 0.998941, 0.991953, -1, -0.992974, -0.999938, -1, -0.992974, -0.395525, -0.885047, -1.10772, 0.387351, -0.885054, -1.10773)
+
+[node name="jukebox" instance=ExtResource("1_egcv4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+script = ExtResource("2_dk010")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_dk010")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Cube" index="1"]
+stream = ExtResource("3_8etj2")
+max_db = -10.0
+emission_angle_enabled = true

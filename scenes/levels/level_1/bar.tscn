@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvrkebf00gnj6"]
+[gd_scene load_steps=19 format=3 uid="uid://cvrkebf00gnj6"]
 
 [ext_resource type="Texture2D" uid="uid://rt5d57h5l7mb" path="res://assets/skybox/autumn_field_puresky_1k.hdr" id="1_8is20"]
 [ext_resource type="PackedScene" uid="uid://ge2mr157qfcw" path="res://scenes/scenery/bar_base.tscn" id="1_ndu7j"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxq2pimq7o1d2" path="res://scenes/props/beer_bottle/non_interactable_beer_bottle.tscn" id="10_ll7lk"]
 [ext_resource type="PackedScene" uid="uid://cowkddxxgh244" path="res://assets/scenery/street/rua.blend" id="11_uillf"]
 [ext_resource type="PackedScene" uid="uid://bypxbyt7n5ec4" path="res://scenes/props/ligth_switch/light_switch.tscn" id="12_tqqoh"]
+[ext_resource type="PackedScene" uid="uid://ced1vmsjlqdpq" path="res://scenes/objects/jukebox/jukebox.tscn" id="13_5px65"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ge48x"]
 panorama = ExtResource("1_8is20")
@@ -71,6 +72,9 @@ light_energy = 2.0
 spot_attenuation = 0.7
 
 [node name="interactibles" type="Node" parent="."]
+
+[node name="jukebox" parent="interactibles" instance=ExtResource("13_5px65")]
+transform = Transform3D(0.677685, 0, 0.735352, 0, 1, 0, -0.735352, 0, 0.677685, 3.89452, 0.0744956, 1.84245)
 
 [node name="light_switch" parent="interactibles" node_paths=PackedStringArray("bar_base", "luz1", "luz2") instance=ExtResource("12_tqqoh")]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -2.39207, 1.19342, -2.19627)
