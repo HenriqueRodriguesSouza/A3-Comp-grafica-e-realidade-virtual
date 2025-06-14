@@ -11,7 +11,7 @@ Para entender como o projeto funciona eu recomendo os seguintes videos:
 
 ### Como importar assests do blender no godot
  - 1 - https://www.youtube.com/watch?v=G7o6moGPzh0 (Inglês com legendas) 
-ou 
+ - ou 
  - 2 - https://www.youtube.com/watch?v=Zdhh63ycoNw (Inglês com legendas)
 
 #### Como exportar o projeto godot para android
